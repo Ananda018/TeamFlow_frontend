@@ -1,15 +1,257 @@
-html, body, #root {
+html,
+body,
+#root {
   margin: 0;
   min-height: 100%;
-  min-width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f8fafc;
 }
-
-body {
-  min-height: 100vh;
-}
-
 * {
   box-sizing: border-box;
+}
+body {
+  min-width: 320px;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+:focus-visible {
+  outline: 3px solid #4f46e5;
+  outline-offset: 4px;
+}
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px max(24px, calc((100vw - 1120px) / 2));
+  border-bottom: 1px solid #e2e8f0;
+  background: white;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -0.7px;
+}
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #4338ca;
+  color: white;
+  font-size: 20px;
+}
+nav {
+  display: flex;
+  gap: 8px;
+}
+nav a {
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 14px;
+}
+nav a.active {
+  background: #eef2ff;
+  color: #3730a3;
+}
+.app-main {
+  flex: 1;
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 64px 0;
+}
+.app-footer {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 24px 0;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 13px;
+}
+.welcome {
+  padding: 36px 0 64px;
+  max-width: 740px;
+}
+.eyebrow {
+  color: #4338ca;
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 16px;
+}
+h1 {
+  font-size: clamp(30px, 4.5vw, 54px);
+  line-height: 1.15;
+  letter-spacing: -1.6px;
+  margin: 0 0 20px;
+  font-weight: 750;
+}
+h2 {
+  font-size: 19px;
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+p {
+  color: #475569;
+}
+.intro {
+  max-width: 550px;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0 0 30px;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: #4338ca;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.button:hover {
+  background: #3730a3;
+}
+.button:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.button.secondary {
+  color: #334155;
+  background: white;
+  border-color: #cbd5e1;
+}
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+.page-heading h1 {
+  font-size: 36px;
+  margin-bottom: 0;
+}
+.panel {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 24px;
+  border-radius: 14px;
+}
+.panel p {
+  margin: 0;
+}
+.panel .button {
+  margin-top: 16px;
+}
+.status-summary {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.status-dot {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.status-dot.up {
+  background: #15803d;
+}
+.status-dot.down {
+  background: #b45309;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.service-card dt {
+  font-weight: 650;
+  margin-bottom: 18px;
+}
+.service-card dd {
+  margin-left: 0;
+}
+.badge {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+.badge.up {
+  color: #166534;
+  background: #f0fdf4;
+}
+.badge.down {
+  color: #92400e;
+  background: #fffbeb;
+}
+.last-checked {
+  color: #64748b;
+  font-size: 13px;
+}
+.error-panel {
+  border-color: #fcd34d;
+}
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  background: white;
+  padding: 12px;
+  z-index: 10;
+}
+.skip-link:focus {
+  top: 8px;
+}
+@media (max-width: 600px) {
+  .app-header {
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .app-main {
+    width: calc(100% - 40px);
+    padding: 40px 0;
+  }
+  .welcome {
+    padding-top: 12px;
+  }
+  .page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .service-card dt {
+    margin-bottom: 0;
+  }
 }

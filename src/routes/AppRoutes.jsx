@@ -1,16 +1,22 @@
-import { Routes, Route } from "react-router-dom";
-
-const HomePage = () => (
-  <div className="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
-    <h2 className="text-2xl font-semibold">Home</h2>
-    <p className="mt-2 text-slate-600">
-      This is the default route for the new app shell.
-    </p>
-  </div>
-);
+import { Routes, Route, Link } from "react-router-dom";
+import HomePage from "../pages/HomePage.jsx";
+import StatusPage from "../pages/StatusPage.jsx";
 
 export const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<HomePage />} />
+    <Route path="/status" element={<StatusPage />} />
+    <Route
+      path="*"
+      element={
+        <section className="panel">
+          <h1>Page not found</h1>
+          <p>This page doesn't exist.</p>
+          <Link className="button" to="/">
+            Go home
+          </Link>
+        </section>
+      }
+    />
   </Routes>
 );

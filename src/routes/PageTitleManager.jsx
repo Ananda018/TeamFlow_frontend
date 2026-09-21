@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-const PageTitleManager = () => {
-  const location = useLocation();
-
+export default function PageTitleManager() {
+  const { pathname } = useLocation();
   useEffect(() => {
-    const title = location.pathname === "/" ? "TeamFlow" : "TeamFlow | App";
-    document.title = title;
-  }, [location]);
-
+    document.title =
+      pathname === "/"
+        ? "TeamFlow"
+        : pathname === "/status"
+          ? "System status | TeamFlow"
+          : "Page not found | TeamFlow";
+  }, [pathname]);
   return null;
-};
-
-export default PageTitleManager;
+}

@@ -20,6 +20,6 @@ export const setupInterceptors = (store, api) => {
         console.warn("Unauthorized access");
       }
       return Promise.reject(error);
-    },
+    }
   );
 };
