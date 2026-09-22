@@ -2,6 +2,10 @@
 
 React 19 + Vite application with a responsive shell, client-side routing, service status page, retry/loading states, and a rendering error boundary.
 
+## Code organization
+
+Follow the user-selected `bn_ef_web` conventions documented in [Frontend structure](docs/FRONTEND_STRUCTURE.md): feature slices, centralized API services, route configuration, shared layouts, and `AuthPages` / `MainPages` screen groups. The guide distinguishes existing foundation code from the organization to adopt as features are implemented.
+
 ## Setup
 
 Node.js >=22.12 is required.
